@@ -18,17 +18,17 @@ spring:
   output:
     ansi:
       enabled: always
-  datasource: #?????? ??
+  datasource:
     hikari:
       auto-commit: false
-  h2: #H2 ??????(???)
+  h2:
     console:
       enabled: true
       path: /h2-console
-  jackson: #?? ??
+  jackson:
     serialization:
       fail-on-empty-beans: false
-  jpa: #JPA ??
+  jpa:
     show-sql: true
     hibernate:
       ddl-auto: create-drop
@@ -63,7 +63,7 @@ spring:
           model: meta-llama/llama-4-scout-17b-16e-instruct
           temperature: 0.2
 
-springdoc: #Swagger ??
+springdoc:
   default-produces-media-type: application/json;charset=UTF-8
   swagger-ui:
     path: /swagger-ui.html
@@ -75,7 +75,7 @@ logging:
     org.hibernate.orm.jdbc.extract: TRACE
     org.springframework.transaction.interceptor: TRACE
     com.back: DEBUG
-management: #????
+management:
   endpoints:
     web:
       base-path: /actuator
@@ -86,8 +86,8 @@ management: #????
       probes:
         enabled: true
       show-details: never
-custom: # ??? ??
-  site: # ?? ?? ?? (??? ?? ????? ??)
+custom:
+  site:
     cookieDomain: localhost
     frontUrl: "http://localhost:3000"
     backUrl: "http://localhost:8080"
@@ -95,14 +95,14 @@ custom: # ??? ??
   jwt:
     secretKey: ${CUSTOM__JWT__SECRET_KEY:mySecretKey1234567890abcdefghijklmnopqrstuvwxyz}
   accessToken:
-    expirationSeconds: "#{60*60*24}"  # 24??
+    expirationSeconds: "#{60*60*24}"
   refreshToken:
-    expirationSeconds: "#{60*60*24*7}"  # 7?
+    expirationSeconds: "#{60*60*24*7}"
   cookie:
     httpOnly: true
-    secure: false      # ??????? false, ??????? true
+    secure: false
     sameSite: "Lax"
-    maxAge: "#{60*60*24}"  # 24??
+    maxAge: "#{60*60*24}"
 aws:
   s3:
     access-key: ${AWS_ACCESS_KEY_ID:local-access-key}
